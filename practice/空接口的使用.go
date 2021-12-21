@@ -1,0 +1,42 @@
+package main
+
+import "fmt"
+
+//空接口的应用
+//类型断言
+
+//func assgin(arg interface{})  {
+//  str, ok := arg.(string)
+//  if !ok{
+//      fmt.Printf("类型断言错误！\n")
+//  }else {
+//      fmt.Printf("恭喜你！猜对了；当前字符串内容为：%s\n", str)
+//  }
+//}
+
+func assgin2(arg interface{}) {
+	fmt.Printf("你输入的内容类型为：%T,", arg)
+	switch t := arg.(type) {
+	case string:
+		fmt.Printf("内容为：%s\n", t)
+	case int:
+		fmt.Printf("内容为：%d\n", t)
+	case bool:
+		fmt.Printf("内容为：")
+		fmt.Println(t)
+	default:
+		fmt.Println("***********")
+		fmt.Printf("您输出的类型为：%#v,", arg)
+	}
+}
+
+func main() {
+
+	//assgin(666)
+	var str string
+	var arg interface{}
+	str = arg.(string)
+	//str := "hello Golang"
+	assgin2(str)
+	//fmt.Println(assgin2)
+}
